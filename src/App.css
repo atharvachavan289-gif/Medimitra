@@ -1,0 +1,426 @@
+/* Base Resets & Variables */
+:root {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --border-color: #cbd5e1; /* Darkened border for better visual separation */
+  --text-main: #0f172a;   /* High contrast dark text */
+  --text-muted: #334155;  /* Darkened from #64748b for crisp readability */
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+/* App Layout */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  font-size: 1.5rem;
+  background: #dbeafe;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.brand-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.brand-subtitle {
+  font-size: 0.75rem;
+  color: #334155;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.status-badge {
+  background: #dcfce7;
+  color: #166534;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+/* Dashboard Content Grid */
+.dashboard-grid {
+  max-width: 1280px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cards & Panel Styling */
+.card-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+}
+
+.panel-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Form & Dropzone */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.dropzone {
+  border: 2px dashed #94a3b8;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-align: center;
+  background: #f8fafc;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dropzone:hover {
+  background: #f1f5f9;
+  border-color: var(--primary);
+}
+
+.dropzone-icon {
+  width: 36px !important;
+  height: 36px !important;
+  max-width: 36px !important;
+  max-height: 36px !important;
+  color: #475569;
+  margin-bottom: 8px;
+}
+
+.dropzone-text {
+  font-size: 0.85rem;
+  color: #334155;
+  font-weight: 600;
+}
+
+.hidden-input {
+  display: none;
+}
+
+.file-selected-tag {
+  font-size: 0.85rem;
+  color: #1d4ed8;
+  font-weight: 700;
+  margin-top: 8px;
+  word-break: break-all;
+}
+
+/* Dropdown Fix: Force Dark Text on Light Options */
+.select-control {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1.5px solid #94a3b8;
+  border-radius: 8px;
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+  outline: none;
+}
+
+.select-control option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px;
+}
+
+/* Buttons */
+.btn-primary {
+  width: 100%;
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  width: 100%;
+  background: #eff6ff;
+  color: #1e40af;
+  border: 1.5px solid #bfdbfe;
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #dbeafe;
+}
+
+/* Patient Banner */
+.patient-banner {
+  background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+  color: #ffffff;
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.patient-info-label {
+  font-size: 0.75rem;
+  color: #e0e7ff;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.patient-info-val {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* Medication Table & Shorthand Fix */
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.custom-table th {
+  background: #f1f5f9;
+  padding: 10px 12px;
+  font-weight: 700;
+  color: #0f172a;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.custom-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border-color);
+  color: #0f172a; /* High contrast text for regional languages */
+  font-weight: 500;
+}
+
+.badge-dosage {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.code-shorthand {
+  background: #e2e8f0;
+  color: #0f172a !important; /* Visible text color */
+  border: 1px solid #94a3b8;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: inline-block;
+  min-width: 32px;
+  text-align: center;
+}
+
+/* Two Column Grid for Tests & Safety */
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .two-col-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-safety {
+  background: #fffbeb;
+  border: 1.5px solid #fde68a;
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.card-safety h3 {
+  color: #78350f;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.card-safety ul {
+  padding-left: 1.25rem;
+  color: #451a03;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.card-lab {
+  background: #ecfdf5;
+  border: 1.5px solid #a7f3d0;
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.card-lab h3 {
+  color: #065f46;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.card-lab ul {
+  padding-left: 1.25rem;
+  color: #022c22;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* States */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #ffffff;
+  border: 2px dashed var(--border-color);
+  border-radius: var(--radius);
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #ffffff;
+  border-radius: var(--radius);
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #cbd5e1;
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 1rem auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-banner {
+  background: #fef2f2;
+  border: 1.5px solid #fca5a5;
+  color: #7f1d1d;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Prevent cutting elements mid-section in PDF */
+.safety-section, .medication-table {
+  page-break-inside: avoid;
+}
