@@ -92,3 +92,5 @@ Open http://localhost:5173 in your browser to view the application.
 ## 📄 License
 
 Distributed under the MIT License.
+
+## Preview : https://medimitra-ashen.vercel.app/
